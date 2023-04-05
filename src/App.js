@@ -1,83 +1,20 @@
+import { Card, Header, Drawer } from './components';
+
 function App() {
   return (
     <div className="wrapper clear">
-      <header className="d-flex justify-between p-40">
-        <div className="d-flex align-center">
-          <img width={40} height={40} src="/img/logo.png" alt="logo" />
-          <div>
-            <h3 className="text-uppercase">Tashkent Sneakers</h3>
-            <p className="opacity-5">Магазин лучших кроссовок</p>
+      <Drawer />
+      <Header />
+      <div className="content p-40">
+        <div className="d-flex align-center mb-40 justify-between">
+          <h1>Все кроссовки</h1>
+          <div className="search-block d-flex">
+            <img src="/img/search.svg" alt="search" />
+            <input placeholder="Поиск..." />
           </div>
         </div>
-        <ul className="d-flex align-center">
-          <li className="mr-30">
-            <img width={18} height={18} src="/img/cart.svg" alt="cart" />
-            <span>1205 сум.</span>
-          </li>
-          <li>
-            <img idth={18} height={18} src="/img/user.svg" alt="user" />
-          </li>
-        </ul>
-      </header>
-      <div className="content p-40">
-        <h1 className="mb-40">Все кроссовки</h1>
-
         <div className="d-flex">
-          <div className="card">
-            <img width={133} height={112} src="/img/sneakers/1.jpg" alt="Sneakers" />
-            <h5>Мужские кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Цена:</span>
-                <b>12 999 сум</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="card" />
-              </button>
-            </div>
-          </div>
-
-          <div className="card">
-            <img width={133} height={112} src="/img/sneakers/2.jpg" alt="Sneakers" />
-            <h5>Мужские кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Цена:</span>
-                <b>12 999 сум</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="card" />
-              </button>
-            </div>
-          </div>
-
-          <div className="card">
-            <img width={133} height={112} src="/img/sneakers/3.jpg" alt="Sneakers" />
-            <h5>Мужские кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Цена:</span>
-                <b>12 999 сум</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="card" />
-              </button>
-            </div>
-          </div>
-
-          <div className="card">
-            <img width={133} height={112} src="/img/sneakers/4.jpg" alt="Sneakers" />
-            <h5>Мужские кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Цена:</span>
-                <b>12 999 сум</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="card" />
-              </button>
-            </div>
-          </div>
+          <Card />
         </div>
       </div>
     </div>
