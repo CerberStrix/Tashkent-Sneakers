@@ -8,7 +8,25 @@ export const Home = ({
   onAddToFavorites,
   onAddToCart,
   onClearSearchValue,
+  cartItems,
+  isLoading,
 }) => {
+  const renderItems = () => {
+    const filteredItems = items.filter((obj) =>
+      obj.title.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+    return (isLoading ? [...Array(8)] : filteredItems).map((obj, index) => (
+      <Card
+        key={index}
+        onPlusClick={() => onAddToCart(obj)}
+        onFavorite={() => onAddToFavorites(obj)}
+        added={cartItems.some((items) => Number(items.id) === Number(obj.id))}
+        isLoading={isLoading}
+        {...obj}
+      />
+    ));
+  };
+
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -30,20 +48,7 @@ export const Home = ({
           )}
         </div>
       </div>
-      <div className="d-flex flex-wrap">
-        {items
-          .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
-          .map((obj, index) => (
-            <Card
-              key={index}
-              title={obj.title}
-              price={obj.price}
-              imageUrl={obj.imageUrl}
-              onPlusClick={() => onAddToCart(obj)}
-              onFavorite={() => onAddToFavorites(obj)}
-            />
-          ))}
-      </div>
+      <div className="d-flex flex-wrap">{renderItems()}</div>
     </div>
   );
 };

@@ -52,17 +52,17 @@ const Drawer = ({ onClose, onRemove, items = [] }) => {
             </div>
           </>
         ) : (
-          <div class="cartEmpty d-flex align-center justify-center flex-column flex">
+          <div className="cartEmpty d-flex align-center justify-center flex-column flex">
             <img
-              class="mb-40"
+              className="mb-40"
               width={120}
               height={120}
               src="/img/empty-cart.jpg"
               alt="Empty Cart"
             />
             <h2>Корзина пустая</h2>
-            <p class="opacity-6">Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
-            <button onClick={onClose} class="greenButton">
+            <p className="opacity-6">Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+            <button onClick={onClose} className="greenButton">
               <img src="/img/arrow.svg" alt="Arrow" />
               Вернуться назад
             </button>

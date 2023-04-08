@@ -11,26 +11,38 @@ function App() {
   const [favorites, setFavorites] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(true);
+
+  const deleteItems = async (id) => {
+    await axios.delete(`https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/${id}`);
+  };
 
   React.useEffect(() => {
     const fetchItems = async () => {
-      const { data } = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/items');
-      setItems(data);
-    };
-    const fetchCartItems = async () => {
-      const { data } = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart');
-      setCartItems(data);
+      const itemsResponse = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/items');
+      const cartResponse = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart');
+      setLoading(false);
+      setCartItems(cartResponse.data);
+      setItems(itemsResponse.data);
     };
     fetchItems();
-    fetchCartItems();
   }, []);
 
   const onAddToCart = (obj) => {
-    const postItems = async () => {
-      await axios.post('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart', obj);
-    };
-    postItems();
-    setCartItems((prev) => [...prev, obj]);
+    if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      setCartItems((prev) => prev.filter((item) => item.id !== obj.id));
+      deleteItems(obj.id);
+    } else {
+      try {
+        const postItems = async () => {
+          await axios.post('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart', obj);
+        };
+        postItems();
+        setCartItems((prev) => [...prev, obj]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   const onAddToFavorites = (obj) => {
@@ -42,10 +54,7 @@ function App() {
   };
 
   const onRemoveItem = (id) => {
-    const deleteItems = async () => {
-      await axios.delete(`https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/${id}`);
-    };
-    deleteItems();
+    deleteItems(id);
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
@@ -56,8 +65,6 @@ function App() {
   const onClearSearchValue = () => {
     setSearchValue('');
   };
-
-  console.log(favorites);
 
   return (
     <div className="wrapper clear">
@@ -77,6 +84,8 @@ function App() {
               onAddToFavorites={onAddToFavorites}
               onClearSearchValue={onClearSearchValue}
               onAddToCart={onAddToCart}
+              cartItems={cartItems}
+              isLoading={isLoading}
             />
           }
           exact
