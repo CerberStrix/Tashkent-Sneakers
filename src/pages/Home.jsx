@@ -8,7 +8,6 @@ export const Home = ({
   onAddToFavorites,
   onAddToCart,
   onClearSearchValue,
-  cartItems,
   isLoading,
 }) => {
   const renderItems = () => {
@@ -20,7 +19,6 @@ export const Home = ({
         key={index}
         onPlusClick={() => onAddToCart(obj)}
         onFavorite={() => onAddToFavorites(obj)}
-        added={cartItems.some((items) => Number(items.id) === Number(obj.id))}
         isLoading={isLoading}
         {...obj}
       />
