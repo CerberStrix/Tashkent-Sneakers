@@ -49,7 +49,7 @@ const Card = ({
         <>
           {onFavorite && (
             <div onClick={handleOnFavorite} className={styles.favorite}>
-              <img src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="Favorite" />
+              <img src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'} alt="Favorite" />
             </div>
           )}
           <img width="100%" height={135} src={imageUrl} alt="Sneakers" />
@@ -64,7 +64,7 @@ const Card = ({
               <img
                 className={styles.plus}
                 onClick={handleAdd}
-                src={isItemsAdded(id) ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
+                src={isItemsAdded(id) ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
                 alt="card"
               />
             )}

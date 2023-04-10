@@ -36,7 +36,7 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
           <img
             onClick={() => setCartOpened(false)}
             className="removeBtn cu-p"
-            src="/img/btn-remove.svg"
+            src="img/btn-remove.svg"
             alt="Remove"></img>
         </h2>
 
@@ -55,7 +55,7 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
                   <img
                     onClick={() => onRemove(obj.id)}
                     className="removeBtn"
-                    src="/img/btn-remove.svg"
+                    src="img/btn-remove.svg"
                     alt="Remove"></img>
                 </div>
               ))}
@@ -74,7 +74,7 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
                 </li>
               </ul>
               <button onClick={onClickOrder} className="greenButton" disabled={isLoading}>
-                Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />
+                Оформить заказ <img src="img/arrow.svg" alt="Arrow" />
               </button>
             </div>
           </>
@@ -86,7 +86,7 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
                 ? 'Ваш заказ #18 скоро будет передан курьерской доставке'
                 : 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'
             }
-            image={isOrderComplete ? '/img/complete-order.jpg' : '/img/empty-cart.jpg'}
+            image={isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'}
           />
         )}
       </div>
