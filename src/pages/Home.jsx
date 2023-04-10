@@ -17,7 +17,7 @@ export const Home = ({
     return (isLoading ? [...Array(8)] : filteredItems).map((obj, index) => (
       <Card
         key={index}
-        onPlusClick={() => onAddToCart(obj)}
+        onPlusClick={onAddToCart}
         onFavorite={() => onAddToFavorites(obj)}
         isLoading={isLoading}
         {...obj}
