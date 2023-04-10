@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../components';
+import path from '../path';
 
 export const Home = ({
   items,
@@ -30,7 +31,7 @@ export const Home = ({
       <div className="d-flex align-center mb-40 justify-between">
         <h1>{searchValue ? `Поиск по запросу "${searchValue}"` : 'Все кроссовки'}</h1>
         <div className="search-block d-flex">
-          <img src="img/search.svg" alt="search" />
+          <img src={`${path}/img/search.svg`} alt="search" />
 
           <input
             onChange={onChangeSearchInput}

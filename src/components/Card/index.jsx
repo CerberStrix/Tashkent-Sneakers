@@ -56,7 +56,7 @@ const Card = ({
               />
             </div>
           )}
-          <img width="100%" height={135} src={`${path}/imageUrl`} alt="Sneakers" />
+          <img width="100%" height={135} src={`${path}/${imageUrl}`} alt="Sneakers" />
           <h5 className="be-bold">{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
