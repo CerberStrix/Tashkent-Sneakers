@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Tashkent-Sneakers/static/css/main.3775241b.css",
-    "main.js": "/Tashkent-Sneakers/static/js/main.45f15818.js",
+    "main.js": "/Tashkent-Sneakers/static/js/main.13f20dc2.js",
     "index.html": "/Tashkent-Sneakers/index.html",
     "main.3775241b.css.map": "/Tashkent-Sneakers/static/css/main.3775241b.css.map",
-    "main.45f15818.js.map": "/Tashkent-Sneakers/static/js/main.45f15818.js.map"
+    "main.13f20dc2.js.map": "/Tashkent-Sneakers/static/js/main.13f20dc2.js.map"
   },
   "entrypoints": [
     "static/css/main.3775241b.css",
-    "static/js/main.45f15818.js"
+    "static/js/main.13f20dc2.js"
   ]
 }
