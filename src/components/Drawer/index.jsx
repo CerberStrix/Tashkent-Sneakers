@@ -3,6 +3,7 @@ import axios from 'axios';
 import Info from '../Card/Info';
 import { useCart } from '../../hooks/useCart';
 import styles from './Drawer.module.scss';
+import { getNumberLocale } from '../../utils';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -65,12 +66,12 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>{price} сум</b>
+                  <b>{getNumberLocale(price)} сум</b>
                 </li>
                 <li>
                   <span>Налог 5%:</span>
                   <div></div>
-                  <b>{(price / 100) * 5} сум</b>
+                  <b>{getNumberLocale((price / 100) * 5)} сум</b>
                 </li>
               </ul>
               <button onClick={onClickOrder} className="greenButton" disabled={isLoading}>

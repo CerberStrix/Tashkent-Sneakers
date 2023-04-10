@@ -3,6 +3,7 @@ import styles from './Card.module.scss';
 import ContentLoader from 'react-content-loader';
 import AppContext from '../../context.js';
 import path from '../../path';
+import { getNumberLocale } from '../../utils';
 
 const Card = ({
   id,
@@ -61,7 +62,7 @@ const Card = ({
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Цена:</span>
-              <b>{price} сум</b>
+              <b>{getNumberLocale(price)} сум</b>
             </div>
 
             {onPlusClick && (

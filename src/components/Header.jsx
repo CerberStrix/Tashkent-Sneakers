@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useCart } from '../hooks/useCart';
+import { getNumberLocale } from '../utils';
 
 const Header = ({ onClickCart }) => {
   const { price } = useCart();
@@ -19,7 +20,7 @@ const Header = ({ onClickCart }) => {
       <ul className="d-flex align-center">
         <li className="mr-30 cu-p" onClick={onClickCart}>
           <img width={18} height={18} src="img/cart.svg" alt="cart" />
-          <span>{price} сум.</span>
+          <span>{getNumberLocale(price)} сум.</span>
         </li>
         <li>
           <Link to="favorites">
