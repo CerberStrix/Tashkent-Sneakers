@@ -6,13 +6,13 @@ const fakeOrder = [
     id: 9,
     title: 'Мужские Кроссовки Nike Lebron XVIII Low',
     price: 12999,
-    imageUrl: '/img/sneakers/9.jpg',
+    imageUrl: 'img/sneakers/9.jpg',
   },
   {
     id: 10,
     title: 'Мужские Кроссовки Nike Blazer Mid Suede',
     price: 12999,
-    imageUrl: '/img/sneakers/10.jpg',
+    imageUrl: 'img/sneakers/10.jpg',
   },
 ];
 

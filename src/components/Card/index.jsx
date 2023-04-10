@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Card.module.scss';
 import ContentLoader from 'react-content-loader';
 import AppContext from '../../context.js';
+import path from '../../path';
 
 const Card = ({
   id,
@@ -49,10 +50,13 @@ const Card = ({
         <>
           {onFavorite && (
             <div onClick={handleOnFavorite} className={styles.favorite}>
-              <img src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'} alt="Favorite" />
+              <img
+                src={isFavorite ? `${path}/img/liked.svg` : `${path}/img/unliked.svg`}
+                alt="Favorite"
+              />
             </div>
           )}
-          <img width="100%" height={135} src={imageUrl} alt="Sneakers" />
+          <img width="100%" height={135} src={`${path}/imageUrl`} alt="Sneakers" />
           <h5 className="be-bold">{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
@@ -64,7 +68,7 @@ const Card = ({
               <img
                 className={styles.plus}
                 onClick={handleAdd}
-                src={isItemsAdded(id) ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
+                src={isItemsAdded(id) ? `${path}/img/btn-checked.svg` : `${path}/img/btn-plus.svg`}
                 alt="card"
               />
             )}
