@@ -43,7 +43,7 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
 
         {items.length > 0 ? (
           <>
-            <div className="items flex">
+            <div className="items flex itemsContainer">
               {items.map((obj, index) => (
                 <div key={`${index}${obj.title}`} className="cartItem d-flex align-center mb-20">
                   <div

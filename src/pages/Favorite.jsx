@@ -10,19 +10,27 @@ export const Favorites = () => {
       <div className="d-flex align-center mb-40 justify-between">
         <h1>Мои закладки</h1>
       </div>
-      <div className="d-flex flex-wrap">
-        {favorites.map((obj, index) => (
-          <Card
-            key={index}
-            title={obj.title}
-            price={obj.price}
-            imageUrl={obj.imageUrl}
-            onPlusClick={() => onAddToCart(obj)}
-            onFavorite={() => onAddToFavorites(obj)}
-            favorited={true}
-          />
-        ))}
-      </div>
+      {favorites.length === 0 ? (
+        <div className="d-flex justify-center">
+          <div className="empty-fav">
+            <h2> Ничего не добавлено :&#40;</h2>
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex flex-wrap">
+          {favorites.map((obj, index) => (
+            <Card
+              key={index}
+              title={obj.title}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+              onPlusClick={() => onAddToCart(obj)}
+              onFavorite={() => onAddToFavorites(obj)}
+              favorited={true}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
