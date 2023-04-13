@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Drawer } from './components';
 
@@ -7,6 +7,10 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorite';
 import AppContext from './context';
 import Orders from './pages/Orders';
+
+import sneakers from './assets/db.json';
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -18,7 +22,7 @@ function App() {
 
   const deleteItems = async (id) => {
     try {
-      await axios.delete(`https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/${id}`);
+      // await axios.delete(`https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -27,13 +31,16 @@ function App() {
   React.useEffect(() => {
     const fetchItems = async () => {
       try {
-        const [itemsResponse, cartResponse] = await Promise.all([
-          axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/items'),
-          axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart'),
-        ]);
+        console.log(sneakers);
+        // const [itemsResponse, cartResponse] = await Promise.all([
+        //   axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/items'),
+        //   axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart'),
+        // ]);
+        await delay(1000);
         setLoading(false);
-        setCartItems(cartResponse.data);
-        setItems(itemsResponse.data);
+        // setCartItems(cartResponse.data);
+        // setItems(itemsResponse.data);
+        setItems(sneakers);
       } catch (error) {
         console.log(error);
       }
@@ -49,18 +56,18 @@ function App() {
     } else {
       try {
         setCartItems((prev) => [...prev, obj]);
-        const { data } = await axios.post('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart', obj);
-        setCartItems((prev) =>
-          prev.map((item) => {
-            if (item.parentId === data.parentId) {
-              return {
-                ...item,
-                id: data.id,
-              };
-            }
-            return item;
-          }),
-        );
+        // const { data } = await axios.post('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart', obj);
+        // setCartItems((prev) =>
+        //   prev.map((item) => {
+        //     if (item.parentId === data.parentId) {
+        //       return {
+        //         ...item,
+        //         id: data.id,
+        //       };
+        //     }
+        //     return item;
+        //   }),
+        // );
       } catch (error) {
         console.log(error);
       }

@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Info from '../Card/Info';
 import { useCart } from '../../hooks/useCart';
 import styles from './Drawer.module.scss';
 import { getNumberLocale } from '../../utils';
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
   const { setCartItems, price } = useCart();
@@ -17,12 +17,12 @@ const Drawer = ({ onRemove, setCartOpened, opened, items = [] }) => {
       setLoading(true);
       setOrder(true);
       setCartItems([]);
-      const { data } = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart');
-      for (let i = 0; i < data.length; i++) {
-        const item = data[i];
-        await axios.delete('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/' + item.id);
-        await delay(1000);
-      }
+      // const { data } = await axios.get('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart');
+      // for (let i = 0; i < data.length; i++) {
+      //   const item = data[i];
+      //   await axios.delete('https://642efdd98ca0fe3352dde76c.mockapi.io/Cart/' + item.id);
+      //   await delay(1000);
+      // }
     } catch (error) {
       alert('Не удалось сделать заказ :(');
     }
